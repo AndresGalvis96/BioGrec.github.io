@@ -1,0 +1,25 @@
+base url¡¡¡¡¡¡¡
+
+// Configuración de URL en el frontend
+const BASE_URL = "https://tu-servidor-publico.com"; // Cambiar según la URL pública del backend
+
+// Ejemplo de solicitud
+fetch(`${BASE_URL}/auth/login`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+});
+
+. Configurar CORS en el Backend
+Dado que el frontend está en GitHub Pages y el backend en otra URL, necesitarás permitir las solicitudes cross-origin (CORS) en el servidor. En un servidor Express, puedes configurarlo así:
+
+javascript
+Copiar código
+import cors from 'cors';
+
+app.use(cors({
+    origin: 'https://tu-github-username.github.io', // O permitir todos los orígenes con '*'
+    credentials: true, // Si estás usando cookies de sesión
+}));
